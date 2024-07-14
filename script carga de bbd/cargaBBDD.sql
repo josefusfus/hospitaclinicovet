@@ -7,7 +7,8 @@ CREATE TABLE mascota (
     raza VARCHAR(255),
     edad INT,
     codigo_identificacion VARCHAR(255),
-    dni_responsable VARCHAR(255)
+    dni_responsable VARCHAR(255),
+    estado VARCHAR(255) DEFAULT 'ALTA' -- Nuevo campo para estado
 );
 
 CREATE TABLE ingreso (
@@ -17,68 +18,62 @@ CREATE TABLE ingreso (
     estado VARCHAR(255),
     mascota_id BIGINT,
     dni_registrador VARCHAR(255),
-    CONSTRAINT fk_mascota FOREIGN KEY (mascota_id) REFERENCES mascota(id)
+    FOREIGN KEY (mascota_id) REFERENCES mascota(id)
 );
 
 
 -- Insertar Mascotas
-INSERT INTO mascota (especie, raza, edad, codigo_identificacion, dni_responsable) VALUES 
-('Perro', 'Labrador', 3, 'ABC123', '12345678A'),
-('Gato', 'Siamés', 2, 'DEF456', '23456789B'),
-('Perro', 'Bulldog', 4, 'GHI789', '34567890C'),
-('Ave', 'Canario', 1, 'JKL012', '45678901D'),
-('Perro', 'Poodle', 5, 'MNO345', '56789012E');
-
--- Insertar más registros de mascotas
-INSERT INTO mascota (especie, raza, edad, codigo_identificacion, dni_responsable) VALUES 
-('Perro', 'Beagle', 2, 'XYZ006', '00000006A'),
-('Gato', 'Persa', 3, 'XYZ007', '00000007A'),
-('Perro', 'Chihuahua', 1, 'XYZ008', '00000008A'),
-('Ave', 'Periquito', 2, 'XYZ009', '00000009A'),
-('Gato', 'Maine Coon', 4, 'XYZ010', '00000010A');
-
--- Repetir para llegar a 50 registros
-INSERT INTO mascota (especie, raza, edad, codigo_identificacion, dni_responsable) VALUES 
-('Perro', 'Boxer', 3, 'XYZ011', '00000011A'),
-('Gato', 'Sphynx', 2, 'XYZ012', '00000012A'),
-('Perro', 'Dachshund', 4, 'XYZ013', '00000013A'),
-('Ave', 'Cotorra', 1, 'XYZ014', '00000014A'),
-('Perro', 'Husky', 5, 'XYZ015', '00000015A'),
-('Perro', 'Golden Retriever', 3, 'XYZ016', '00000016A'),
-('Gato', 'Birmano', 2, 'XYZ017', '00000017A'),
-('Perro', 'Pastor Alemán', 4, 'XYZ018', '00000018A'),
-('Ave', 'Agaporni', 1, 'XYZ019', '00000019A'),
-('Gato', 'Angora', 5, 'XYZ020', '00000020A'),
-('Perro', 'San Bernardo', 3, 'XYZ021', '00000021A'),
-('Gato', 'Chartreux', 2, 'XYZ022', '00000022A'),
-('Perro', 'Galgo', 4, 'XYZ023', '00000023A'),
-('Ave', 'Loro', 1, 'XYZ024', '00000024A'),
-('Perro', 'Shih Tzu', 5, 'XYZ025', '00000025A'),
-('Perro', 'Cocker Spaniel', 3, 'XYZ026', '00000026A'),
-('Gato', 'Exótico', 2, 'XYZ027', '00000027A'),
-('Perro', 'Akita', 4, 'XYZ028', '00000028A'),
-('Ave', 'Ganso', 1, 'XYZ029', '00000029A'),
-('Gato', 'Ragdoll', 5, 'XYZ030', '00000030A'),
-('Perro', 'Mastín', 3, 'XYZ031', '00000031A'),
-('Gato', 'Siberiano', 2, 'XYZ032', '00000032A'),
-('Perro', 'Terrier', 4, 'XYZ033', '00000033A'),
-('Ave', 'Paloma', 1, 'XYZ034', '00000034A'),
-('Perro', 'Salchicha', 5, 'XYZ035', '00000035A'),
-('Perro', 'Labrador', 3, 'XYZ036', '00000036A'),
-('Gato', 'Siamés', 2, 'XYZ037', '00000037A'),
-('Perro', 'Bulldog', 4, 'XYZ038', '00000038A'),
-('Ave', 'Canario', 1, 'XYZ039', '00000039A'),
-('Perro', 'Poodle', 5, 'XYZ040', '00000040A'),
-('Perro', 'Beagle', 2, 'XYZ041', '00000041A'),
-('Gato', 'Persa', 3, 'XYZ042', '00000042A'),
-('Perro', 'Chihuahua', 1, 'XYZ043', '00000043A'),
-('Ave', 'Periquito', 2, 'XYZ044', '00000044A'),
-('Gato', 'Maine Coon', 4, 'XYZ045', '00000045A'),
-('Perro', 'Boxer', 3, 'XYZ046', '00000046A'),
-('Gato', 'Sphynx', 2, 'XYZ047', '00000047A'),
-('Perro', 'Dachshund', 4, 'XYZ048', '00000048A'),
-('Ave', 'Cotorra', 1, 'XYZ049', '00000049A'),
-('Perro', 'Husky', 5, 'XYZ050', '00000050A');
+INSERT INTO mascota (especie, raza, edad, codigo_identificacion, dni_responsable, estado) VALUES 
+('Perro', 'Labrador', 3, 'ABC123', '12345678A', 'ALTA'),
+('Gato', 'Siamés', 2, 'DEF456', '23456789B', 'ALTA'),
+('Perro', 'Bulldog', 4, 'GHI789', '34567890C', 'ALTA'),
+('Ave', 'Canario', 1, 'JKL012', '45678901D', 'ALTA'),
+('Perro', 'Poodle', 5, 'MNO345', '56789012E', 'ALTA'),
+('Perro', 'Beagle', 2, 'XYZ006', '00000006A', 'ALTA'),
+('Gato', 'Persa', 3, 'XYZ007', '00000007A', 'ALTA'),
+('Perro', 'Chihuahua', 1, 'XYZ008', '00000008A', 'ALTA'),
+('Ave', 'Periquito', 2, 'XYZ009', '00000009A', 'ALTA'),
+('Gato', 'Maine Coon', 4, 'XYZ010', '00000010A', 'ALTA'),
+('Perro', 'Boxer', 3, 'XYZ011', '00000011A', 'ALTA'),
+('Gato', 'Sphynx', 2, 'XYZ012', '00000012A', 'ALTA'),
+('Perro', 'Dachshund', 4, 'XYZ013', '00000013A', 'ALTA'),
+('Ave', 'Cotorra', 1, 'XYZ014', '00000014A', 'ALTA'),
+('Perro', 'Husky', 5, 'XYZ015', '00000015A', 'ALTA'),
+('Perro', 'Golden Retriever', 3, 'XYZ016', '00000016A', 'ALTA'),
+('Gato', 'Birmano', 2, 'XYZ017', '00000017A', 'ALTA'),
+('Perro', 'Pastor Alemán', 4, 'XYZ018', '00000018A', 'ALTA'),
+('Ave', 'Agaporni', 1, 'XYZ019', '00000019A', 'ALTA'),
+('Gato', 'Angora', 5, 'XYZ020', '00000020A', 'ALTA'),
+('Perro', 'San Bernardo', 3, 'XYZ021', '00000021A', 'ALTA'),
+('Gato', 'Chartreux', 2, 'XYZ022', '00000022A', 'ALTA'),
+('Perro', 'Galgo', 4, 'XYZ023', '00000023A', 'ALTA'),
+('Ave', 'Loro', 1, 'XYZ024', '00000024A', 'ALTA'),
+('Perro', 'Shih Tzu', 5, 'XYZ025', '00000025A', 'ALTA'),
+('Perro', 'Cocker Spaniel', 3, 'XYZ026', '00000026A', 'ALTA'),
+('Gato', 'Exótico', 2, 'XYZ027', '00000027A', 'ALTA'),
+('Perro', 'Akita', 4, 'XYZ028', '00000028A', 'ALTA'),
+('Ave', 'Ganso', 1, 'XYZ029', '00000029A', 'ALTA'),
+('Gato', 'Ragdoll', 5, 'XYZ030', '00000030A', 'ALTA'),
+('Perro', 'Mastín', 3, 'XYZ031', '00000031A', 'ALTA'),
+('Gato', 'Siberiano', 2, 'XYZ032', '00000032A', 'ALTA'),
+('Perro', 'Terrier', 4, 'XYZ033', '00000033A', 'ALTA'),
+('Ave', 'Paloma', 1, 'XYZ034', '00000034A', 'ALTA'),
+('Perro', 'Salchicha', 5, 'XYZ035', '00000035A', 'ALTA'),
+('Perro', 'Labrador', 3, 'XYZ036', '00000036A', 'ALTA'),
+('Gato', 'Siamés', 2, 'XYZ037', '00000037A', 'ALTA'),
+('Perro', 'Bulldog', 4, 'XYZ038', '00000038A', 'ALTA'),
+('Ave', 'Canario', 1, 'XYZ039', '00000039A', 'ALTA'),
+('Perro', 'Poodle', 5, 'XYZ040', '00000040A', 'ALTA'),
+('Perro', 'Beagle', 2, 'XYZ041', '00000041A', 'ALTA'),
+('Gato', 'Persa', 3, 'XYZ042', '00000042A', 'ALTA'),
+('Perro', 'Chihuahua', 1, 'XYZ043', '00000043A', 'ALTA'),
+('Ave', 'Periquito', 2, 'XYZ044', '00000044A', 'ALTA'),
+('Gato', 'Maine Coon', 4, 'XYZ045', '00000045A', 'ALTA'),
+('Perro', 'Boxer', 3, 'XYZ046', '00000046A', 'ALTA'),
+('Gato', 'Sphynx', 2, 'XYZ047', '00000047A', 'ALTA'),
+('Perro', 'Dachshund', 4, 'XYZ048', '00000048A', 'ALTA'),
+('Ave', 'Cotorra', 1, 'XYZ049', '00000049A', 'ALTA'),
+('Perro', 'Husky', 5, 'XYZ050', '00000050A', 'ALTA');
 
 -- Insertar Ingresos
 INSERT INTO ingreso (fecha_alta_ingreso, fecha_fin_ingreso, estado, mascota_id, dni_registrador) VALUES 
@@ -86,10 +81,7 @@ INSERT INTO ingreso (fecha_alta_ingreso, fecha_fin_ingreso, estado, mascota_id, 
 ('2023-02-01', NULL, 'HOSPITALIZACION', 2, '23456789B'),
 ('2023-03-01', '2023-03-15', 'FINALIZADO', 3, '34567890C'),
 ('2023-04-01', NULL, 'HOSPITALIZACION', 4, '45678901D'),
-('2023-05-01', '2023-05-20', 'FINALIZADO', 5, '56789012E');
-
--- Insertar más registros de ingresos (50 registros en total)
-INSERT INTO ingreso (fecha_alta_ingreso, fecha_fin_ingreso, estado, mascota_id, dni_registrador) VALUES 
+('2023-05-01', '2023-05-20', 'FINALIZADO', 5, '56789012E'),
 ('2023-06-01', '2023-06-10', 'FINALIZADO', 6, '00000006A'),
 ('2023-07-01', NULL, 'HOSPITALIZACION', 7, '00000007A'),
 ('2023-08-01', '2023-08-15', 'FINALIZADO', 8, '00000008A'),

@@ -2,7 +2,9 @@ package com.jlsaez.hospitalclinicovetapi.service;
 
 
 import com.jlsaez.hospitalclinicovetapi.model.Ingreso;
+import com.jlsaez.hospitalclinicovetapi.model.Mascota;
 import com.jlsaez.hospitalclinicovetapi.repository.IngresoRepository;
+import com.jlsaez.hospitalclinicovetapi.repository.MascotaRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,15 +17,24 @@ public class IngresoService {
     @Autowired
     private IngresoRepository ingresoRepository;
 
+    @Autowired
+    private MascotaRepository mascotaRepository;
+
     public List<Ingreso> findAll() {
         return ingresoRepository.findAll();
     }
 
     public Ingreso save(Ingreso ingreso) {
-        if ("FINALIZADO".equals(ingreso.getEstado()) && ingreso.getFechaFinIngreso() == null) {
-            throw new IllegalArgumentException("Ingreso no puede estar en estado FINALIZADO sin fecha de fin.");
+        Optional<Mascota> mascota = mascotaRepository.findById(ingreso.getMascota().getId());
+        if (mascota.isPresent() && "ALTA".equals(mascota.get().getEstado())) {
+            if ("FINALIZADO".equals(ingreso.getEstado()) && ingreso.getFechaFinIngreso() == null) {
+                throw new IllegalArgumentException("Ingreso no puede estar en estado FINALIZADO sin fecha de fin.");
+            }
+            ingreso.setMascota(mascota.get());
+            return ingresoRepository.save(ingreso);
+        } else {
+            throw new IllegalArgumentException("La mascota está de baja o no existe.");
         }
-        return ingresoRepository.save(ingreso);
     }
 
     public Optional<Ingreso> findById(Long id) {

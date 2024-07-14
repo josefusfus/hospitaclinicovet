@@ -16,6 +16,9 @@ public class MascotaService {
     private MascotaRepository mascotaRepository;
 
     public Mascota save(Mascota mascota) {
+        if (mascota.getEstado() == null) {
+            mascota.setEstado("ALTA");
+        }
         return mascotaRepository.save(mascota);
     }
 
@@ -31,8 +34,7 @@ public class MascotaService {
         Optional<Mascota> mascota = mascotaRepository.findById(id);
         if (mascota.isPresent()) {
             Mascota updatedMascota = mascota.get();
-            // Lógica de baja: podríamos añadir un campo booleano `activo` para marcar la baja
-            // pero según los datos proporcionados, simplemente la retornamos
+            updatedMascota.setEstado("BAJA");
             mascotaRepository.save(updatedMascota);
         } else {
             throw new IllegalArgumentException("Mascota con ID " + id + " no encontrada");

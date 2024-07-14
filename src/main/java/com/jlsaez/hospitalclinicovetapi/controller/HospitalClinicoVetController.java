@@ -40,7 +40,8 @@ public class HospitalClinicoVetController {
             Optional<Mascota> mascota = mascotaService.findById(ingreso.getMascota().getId());
             if (mascota.isPresent() && mascota.get().getDniResponsable().equals(ingreso.getDniRegistrador())) {
                 ingreso.setEstado("ALTA");
-                return ResponseEntity.ok(ingresoService.save(ingreso));
+                Ingreso nuevoIngreso = ingresoService.save(ingreso);
+                return ResponseEntity.ok(nuevoIngreso);
             } else {
                 return ResponseEntity.badRequest().body("DNI del registrador no coincide con el responsable de la mascota");
             }

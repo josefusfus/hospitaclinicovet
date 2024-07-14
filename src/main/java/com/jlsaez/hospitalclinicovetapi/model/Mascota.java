@@ -1,6 +1,7 @@
 package com.jlsaez.hospitalclinicovetapi.model;
 
 import jakarta.persistence.*;
+import  java.util.List;
 
 @Entity
 public class Mascota {
@@ -13,6 +14,10 @@ public class Mascota {
     private int edad;
     private String codigoIdentificacion;
     private String dniResponsable;
+    private String estado; //ALTA O BAJA
+
+    @OneToMany(mappedBy = "mascota", cascade = CascadeType.ALL)
+    private List<Ingreso> ingresos;
 
     public void setId(Long id) {
         this.id = id;
@@ -60,6 +65,14 @@ public class Mascota {
 
     public void setDniResponsable(String dniResponsable) {
         this.dniResponsable = dniResponsable;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
 
