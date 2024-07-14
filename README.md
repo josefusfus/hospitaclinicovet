@@ -38,7 +38,9 @@ La **Hospital Clínico Veterinario API** es una aplicación backend desarrollada
 ## Instalación
 
 **Clonar el repositorio**
+
    - git clone https://github.com/josefusfus/hospitaclinicovet.git
+   - 
 **Ejecutar la app**
    - ejecutar el archivo .jar desde el directorio donde esté descargado el repo
      "java -jar target/hospitalclinicovetapi-0.0.1-SNAPSHOT.jar"
@@ -128,7 +130,8 @@ La aplicación está protegida con autenticación básica. Las credenciales pred
 
 Para facilitar las pruebas, se incluye una colección de Postman que puedes importar.
 
- - Importar la Colección de Postman que se encuentra en el repositoria en el directorio Pruebas PostmanDescargar el archivo "Pruebas api rest hospitalclinicovet.postman_collection.json"
+ - Importar la Colección de Postman que se encuentra en el repositoria en el directorio Pruebas Postman
+ - -Descargar el archivo "Pruebas api rest hospitalclinicovet.postman_collection.json"
  - Abrir Postman y hacer clic en el botón "Import".
  - Seleccionar el archivo .json descargado y hacer clic en "Import".
  - Ahora estará la colección importada en tu Postman, lista para ser utilizada.
