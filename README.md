@@ -131,7 +131,7 @@ La aplicación está protegida con autenticación básica. Las credenciales pred
 Para facilitar las pruebas, se incluye una colección de Postman que puedes importar.
 
  - Importar la Colección de Postman que se encuentra en el repositoria en el directorio Pruebas Postman
- - -Descargar el archivo "Pruebas api rest hospitalclinicovet.postman_collection.json"
+ - Descargar el archivo "Pruebas api rest hospitalclinicovet.postman_collection.json"
  - Abrir Postman y hacer clic en el botón "Import".
  - Seleccionar el archivo .json descargado y hacer clic en "Import".
  - Ahora estará la colección importada en tu Postman, lista para ser utilizada.
