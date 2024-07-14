@@ -23,7 +23,7 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/h2-console/**").permitAll() // Permitir acceso a la consola H2
+                                .requestMatchers("/h2-console/**", "/swagger-ui/**", "/v3/api-docs/**").permitAll() // Permitir acceso a la consola H2
                                 .requestMatchers("/hospitalclinicovet-api/**").authenticated()
                 )
                 .httpBasic(withDefaults())
