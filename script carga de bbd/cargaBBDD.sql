@@ -21,7 +21,6 @@ CREATE TABLE ingreso (
     FOREIGN KEY (mascota_id) REFERENCES mascota(id)
 );
 
-
 -- Insertar Mascotas
 INSERT INTO mascota (especie, raza, edad, codigo_identificacion, dni_responsable, estado) VALUES 
 ('Perro', 'Labrador', 3, 'ABC123', '12345678A', 'ALTA'),
@@ -77,7 +76,7 @@ INSERT INTO mascota (especie, raza, edad, codigo_identificacion, dni_responsable
 
 -- Insertar Ingresos
 INSERT INTO ingreso (fecha_alta_ingreso, fecha_fin_ingreso, estado, mascota_id, dni_registrador) VALUES 
-('2023-01-01', '2023-01-10', 'FINALIZADO', 1, '12345678A'),
+('2023-01-01', NULL, 'ALTA', 1, '12345678A'),
 ('2023-02-01', NULL, 'HOSPITALIZACION', 2, '23456789B'),
 ('2023-03-01', '2023-03-15', 'FINALIZADO', 3, '34567890C'),
 ('2023-04-01', NULL, 'HOSPITALIZACION', 4, '45678901D'),
@@ -126,4 +125,7 @@ INSERT INTO ingreso (fecha_alta_ingreso, fecha_fin_ingreso, estado, mascota_id, 
 ('2026-11-01', NULL, 'HOSPITALIZACION', 47, '00000047A'),
 ('2026-12-01', '2026-12-15', 'FINALIZADO', 48, '00000048A'),
 ('2027-01-01', NULL, 'HOSPITALIZACION', 49, '00000049A'),
-('2027-02-01', '2027-02-20', 'FINALIZADO', 50, '00000050A');
+('2027-02-01', '2027-02-20', 'FINALIZADO', 50, '00000050A'),
+('2026-11-01', NULL, 'HOSPITALIZACION', 1, '12345678A'),
+('2026-12-01', '2026-12-15', 'FINALIZADO', 2, '23456789B'),
+('2027-01-01', NULL, 'HOSPITALIZACION', 3, '34567890C');
