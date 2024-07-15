@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.jlsaez.hospitalclinicovetapi.HospitalclinicovetapiApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.110 s -- in com.jlsaez.hospitalclinicovetapi.HospitalclinicovetapiApplicationTests

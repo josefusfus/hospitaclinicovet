@@ -1,0 +1,9 @@
+/Users/josefus/Documents/SPRINGBOOT/hospitalclinicovetapi/src/main/java/com/jlsaez/hospitalclinicovetapi/HospitalclinicovetapiApplication.java
+/Users/josefus/Documents/SPRINGBOOT/hospitalclinicovetapi/src/main/java/com/jlsaez/hospitalclinicovetapi/config/SecurityConfig.java
+/Users/josefus/Documents/SPRINGBOOT/hospitalclinicovetapi/src/main/java/com/jlsaez/hospitalclinicovetapi/controller/HospitalClinicoVetController.java
+/Users/josefus/Documents/SPRINGBOOT/hospitalclinicovetapi/src/main/java/com/jlsaez/hospitalclinicovetapi/model/Ingreso.java
+/Users/josefus/Documents/SPRINGBOOT/hospitalclinicovetapi/src/main/java/com/jlsaez/hospitalclinicovetapi/model/Mascota.java
+/Users/josefus/Documents/SPRINGBOOT/hospitalclinicovetapi/src/main/java/com/jlsaez/hospitalclinicovetapi/repository/IngresoRepository.java
+/Users/josefus/Documents/SPRINGBOOT/hospitalclinicovetapi/src/main/java/com/jlsaez/hospitalclinicovetapi/repository/MascotaRepository.java
+/Users/josefus/Documents/SPRINGBOOT/hospitalclinicovetapi/src/main/java/com/jlsaez/hospitalclinicovetapi/service/IngresoService.java
+/Users/josefus/Documents/SPRINGBOOT/hospitalclinicovetapi/src/main/java/com/jlsaez/hospitalclinicovetapi/service/MascotaService.java
